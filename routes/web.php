@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\CursoController;
+use App\Mail\ContactonosMailable;
+use Illuminate\Support\Facades\Mail;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -44,6 +46,13 @@ Route::delete('cursos/{curso}', [CursoController::class,'destroy'])->name('curso
     //return" en esta pagina puedes cear ";
 
 //});
+
+Route::get('contactanos', function(){
+
+    $correo = new ContactonosMailable;
+    Mail::to('roberto.crofford.09@mail.com')->send($correo);
+    return " mensaje enviado";
+});
 
 Route::get('cursos/{curso}', [CursoController::class,'show'])->name('cursos.show'); //rutalimpia
 //function ($curso) {

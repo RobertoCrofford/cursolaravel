@@ -16,6 +16,7 @@
     @error('name')
         <br>
         <small>*{{$message}}</small>
+        <br>
     @enderror
 
 <label>
